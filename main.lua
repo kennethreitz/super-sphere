@@ -123,10 +123,10 @@ function draw_ball()
   jump_offset = direction * (game.current_jump * track_distance)
 
   x = (x_locations[game.track] + jump_offset) + woggle2
-  y = (height / 9) + woggle1
+  y = (height / 2) + woggle1
 
   love.graphics.setColor(255, 255, 255)
-  love.graphics.circle("fill", x, y, width/20)
+  love.graphics.circle("fill", x, y, width/20 + (width/40)*game.current_jump)
 end
 
 
@@ -142,6 +142,8 @@ function draw_track1()
     x_offset + track_width, 0,
     x_offset + track_width + woggle, height,
     x_offset + woggle, height)
+
+
 end
 
 function draw_track2()
@@ -158,15 +160,60 @@ function draw_track2()
     x_offset, height)
 end
 
+function draw_obstacles()
+  x_locations = {(width/5)*2, (width/5)*3}
+  love.graphics.setColor(255, 255, 255, 225)
+
+  h = (width/20)
+
+  for i,v in ipairs(game.obstacles_1) do
+
+    love.graphics.polygon('fill',
+      h, (height-h) - (height*v),
+      h, height - (height*v),
+      width/2, height - (height*v),
+      width/2, (height-h) - (height*v))
+
+    love.graphics.printf(math.floor(v*100), 0, height-80, width, 'center')
+  end
+
+  for i,v in ipairs(game.obstacles_2) do
+
+    love.graphics.polygon('fill',
+      (width/10)*9, (height-(height/10)) - (height*v),
+      (width/10)*9, height - (height*v),
+      width/2, height - (height*v),
+      width/2, (height-(height/10)) - (height*v))
+  end
+
+
+end
+
+function draw_death()
+  if game.dead then
+    love.graphics.setColor(0, 0, 0)
+    love.graphics.polygon("fill",
+      0, 0,
+      0, height,
+      width, height,
+      width, 0)
+
+    love.graphics.setColor(255, 0, 0)
+    love.graphics.printf('GAME OVER', 0, height/2, width, 'center')
+  end
+end
+
 function love.draw()
     draw_attractor()
 
     draw_track1()
     draw_track2()
+    draw_obstacles()
 
     draw_ball()
 
     draw_distance()
+    draw_death()
 
 end
 

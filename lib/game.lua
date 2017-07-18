@@ -9,20 +9,27 @@ function Game:initialize()
   self.stretch_goal_distance = 3000
   self.starting_position = (-1 * self.goal_distance)
   self.track = 1
+  self.dead = false
+
+  self.obstacles_1 = {}
+  self.obstacles_2 = {}
 
   self.progress = 0
   self.stretch_progress = 0
+  self.obstacle_slowest = 3
+  self.obstacle_interval = self.obstacle_slowest
+  self.obstacle_countdown = self.obstacle_interval
 
   self.ball_wobble = 0
-  self.ball_max_wobble = 8
+  self.ball_max_wobble = 4
   self.track_wobble = 0
   self.track_max_wobble = 25
 
-  self.jump_duration = 0.05
+  self.jump_duration = 0.1
   self.current_jump = 0
 
   self.background_color = self:random_color()
-  self.background_slowest = 1.4
+  self.background_slowest = 1
   self.background_interval = self.background_slowest
   self.background_countdown = self.background_interval
 
@@ -36,6 +43,70 @@ function Game:update(dt)
   self:update_background_speed()
   self:update_jump(dt)
   self:update_wobbles(dt)
+  self:update_obstacles(dt)
+end
+
+function map(func, array)
+  local new_array = {}
+  for i,v in ipairs(array) do
+    new_array[i] = func(v)
+  end
+  return new_array
+end
+
+function Game:update_obstacles(dt)
+  self.obstacle_countdown = self.obstacle_countdown - dt
+     if self.obstacle_countdown <= 0 then
+          -- randomly generate obstacles
+          local track = math.random(1, 2)
+          if track == 1 then
+            table.insert(self.obstacles_1, 1)
+          else
+            table.insert(self.obstacles_2, 1)
+          end
+          if self.obstacle_interval > 0.5 then
+            self.obstacle_interval = self.obstacle_interval - math.random(0, self.obstacle_interval/3)
+          else
+            self.obstacle_interval = math.random(0.5, 3)
+          end
+
+          self.obstacle_countdown = self.obstacle_countdown + self.obstacle_interval
+     end
+
+  local threshold = 0.05
+  local cutoff = 0.5
+
+  for i,v in ipairs(self.obstacles_1) do
+    v2 = v - dt
+    self.obstacles_1[i] = v2
+    if v < 0 then
+      table.remove(self.obstacles_1, i)
+    end
+
+
+    if v < cutoff + threshold and v > cutoff then
+      if self.track == 1 then
+        self.dead = true
+      end
+    end
+
+  end
+
+  for i,v in ipairs(self.obstacles_2) do
+    v2 = v - dt
+    self.obstacles_2[i] = v2
+    if v < 0 then
+      table.remove(self.obstacles_2, i)
+    end
+
+    if v < cutoff + threshold and v > cutoff then
+      if self.track == 2 then
+        self.dead = true
+      end
+    end
+  end
+
+  -- print(inspect(self.obstacles_1))
 end
 function Game:score()
   return self.starting_position + self.distance
