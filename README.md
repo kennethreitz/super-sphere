@@ -1,4 +1,4 @@
-# Super Sphere
+# Super Sphere!
 
 Basically the best game ever. Written in [Löve2D](http://love2d.org) and Lua. 
 
