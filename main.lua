@@ -2,7 +2,7 @@ local game = require('lib/game')
 
 TLbind, control = love.filesystem.load('lib/vendor/TLbind.lua')()
 TLbind.joyBtns = { {"jump", "jump", "jump", "jump"} }
-TLbind.keys = {space="jump", e="jump", esc="quit", q="quit"}
+TLbind.keys = {space="jump", e="jump", escape="quit", q="quit"}
 -- TLbind.mouseBtns = { l="jump" }
 
 
