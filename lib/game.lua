@@ -1,6 +1,15 @@
 local class = require('lib/vendor/middleclass')
 local inspect = require('lib/vendor/inspect')
 
+function map(func, array)
+  local new_array = {}
+  for i,v in ipairs(array) do
+    new_array[i] = func(v)
+  end
+  return new_array
+end
+
+
 Game = class('Game')
 function Game:initialize()
   self.distance = 0
@@ -10,6 +19,8 @@ function Game:initialize()
   self.starting_position = (-1 * self.goal_distance)
   self.track = 1
   self.dead = false
+  self.dead_elapsed = 0
+  self.dead_timeout = 1
 
   self.obstacles_1 = {}
   self.obstacles_2 = {}
@@ -44,14 +55,7 @@ function Game:update(dt)
   self:update_jump(dt)
   self:update_wobbles(dt)
   self:update_obstacles(dt)
-end
-
-function map(func, array)
-  local new_array = {}
-  for i,v in ipairs(array) do
-    new_array[i] = func(v)
-  end
-  return new_array
+  self:update_dead(dt)
 end
 
 function Game:update_obstacles(dt)
@@ -107,7 +111,6 @@ function Game:update_obstacles(dt)
     end
   end
 
-  -- print(inspect(self.obstacles_1))
 end
 function Game:score()
   return self.starting_position + self.distance
@@ -117,6 +120,12 @@ function Game:update_wobbles(dt)
   if self.progress > 1 then
     self.track_wobble = self.progress * self.track_max_wobble
     self.ball_wobble = self.progress * self.ball_max_wobble
+  end
+end
+
+function Game:update_dead(dt)
+  if self.dead then
+    self.dead_elapsed = self.dead_elapsed + dt
   end
 end
 

@@ -77,27 +77,6 @@ function draw_attractor()
   -- love.graphics.circle("fill", 400, 300, random_max - 15)
 end
 
-function draw_button_indicator()
-  local name = ''
-  love.graphics.setFont(font, 55)
-  love.graphics.setColor(255, 255, 255)
-
-  if control.a then
-    name = 'Harvester'
-
-  elseif control.b then
-    name = 'Optimize'
-
-  elseif control.x then
-    name = 'Upgrade'
-
-  elseif control.y then
-    name = 'Stats'
-  end
-
-  love.graphics.printf(name, 0, 550, 800, 'center')
-end
-
 function draw_field()
   for i=1,1000 do
       love.graphics.setColor(math.random(1, 255), math.random(1, 255), math.random(1, 255))
@@ -228,12 +207,14 @@ end
 -- Jump!
 function jump(dt)
   if game.dead then
-    over_sound:stop()
-    game:initialize()
+    if game.dead_elapsed > game.dead_timeout then
+      over_sound:stop()
+      game:initialize()
+    end
+  else
+    game:jump(dt)
+    jump_sound:play()
   end
-
-  game:jump(dt)
-  jump_sound:play()
 end
 
 -- iOS touchscreen support.

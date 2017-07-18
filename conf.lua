@@ -1,8 +1,8 @@
 function love.conf(t)
-    t.identity = "love_block"          -- The name of the save directory (string)
+    t.identity = "super_sphere"          -- The name of the save directory (string)
     -- t.version = "0.9"                -- The LÖVE version this game was made for (string)
     t.console = true                 -- Attach a console (boolean, Windows only)
-    t.author = "GoonHouse"             -- Who made this?
+    t.author = "KennethReitz"             -- Who made this?
     -- t.window.title = "Love Block"        -- The window title (string)
     -- t.window.icon = "love_block.png"    -- Filepath to an image to use as the window's icon (string)
 
@@ -10,7 +10,7 @@ function love.conf(t)
     t.window.width = 0               -- The window width (number)
     t.window.height = 0              -- The window height (number)
     t.window.borderless = true        -- Remove all border visuals from the window (boolean)
-    -- t.window.fullscreen = true        -- Enable fullscreen (boolean)
+    t.window.fullscreen = true        -- Enable fullscreen (boolean)
     t.window.fullscreentype = "desktop" -- Standard fullscreen or desktop fullscreen mode (string)
     t.window.vsync = true              -- Enable vertical sync (boolean)
     t.window.fsaa = 0                  -- The number of samples to use with multi-sampled antialiasing (number)
