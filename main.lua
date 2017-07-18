@@ -52,7 +52,7 @@ function draw_attractor()
     width, height,
     width, 0)
 
-  if (game.stretch_progress > 0.8) and (not mobile) then
+  if (game.stretch_progress > 0.8) then
 
     random_max = game.stretch_progress * random_max
 
@@ -187,7 +187,7 @@ function draw_demands()
       width, 0)
 
     love.graphics.setColor(255, 255, 255)
-    love.graphics.printf('Jump! (space bar, touch screen, controller button)', 0, height/2, width, 'center')
+    love.graphics.printf('Jump!', 0, height/2, width, 'center')
 
   end
 end

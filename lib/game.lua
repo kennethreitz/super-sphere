@@ -121,7 +121,9 @@ end
 
 function Game:update_wobbles(dt)
   if self.progress > 1 then
-    self.track_wobble = self.progress * self.track_max_wobble
+    if self.track_wobble < self.track_max_wobble then
+        self.track_wobble = self.progress * self.track_max_wobble
+    end
     self.ball_wobble = self.progress * self.ball_max_wobble
   end
 end
