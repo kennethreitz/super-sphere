@@ -172,7 +172,7 @@ function Game:toggle_tracks()
     return true
 end
 function Game:update_distance(dt)
-  if (self.started or not self.dead) then
+  if (self.started and not self.dead) then
     local d = (dt * self.distance_rate)
     self.distance = self.distance + d
   end

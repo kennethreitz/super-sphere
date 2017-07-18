@@ -26,6 +26,7 @@ function love.load()
 
     -- The operating system.
     os = love.system.getOS()
+    mobile = (os == 'iOS') or (os == 'Android')
 
     -- Dimensions.
     width, height = love.graphics.getDimensions()
@@ -51,7 +52,7 @@ function draw_attractor()
     width, height,
     width, 0)
 
-  if (game.stretch_progress > 0.8) and (os ~= 'iOS') then
+  if (game.stretch_progress > 0.8) and (not mobile) then
 
     random_max = game.stretch_progress * random_max
 
