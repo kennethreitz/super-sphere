@@ -13,9 +13,9 @@ function love.conf(t)
     t.window.fullscreen = true        -- Enable fullscreen (boolean)
     t.window.fullscreentype = "desktop" -- Standard fullscreen or desktop fullscreen mode (string)
     t.window.vsync = true              -- Enable vertical sync (boolean)
-    t.window.fsaa = 0                  -- The number of samples to use with multi-sampled antialiasing (number)
+    t.window.fsaa = 16                  -- The number of samples to use with multi-sampled antialiasing (number)
     t.window.display = 1               -- Index of the monitor to show the window in (number)
-    t.window.srgb = false              -- Enable sRGB gamma correction when drawing to the screen (boolean). Added in 0.9.1
+    t.window.srgb = true              -- Enable sRGB gamma correction when drawing to the screen (boolean). Added in 0.9.1
 
     -- no touching
     t.window.resizable = false         -- Let the window be user-resizable (boolean)
@@ -25,9 +25,9 @@ function love.conf(t)
 
     -- Not-Yet-Needed Modules
     t.modules.audio = true            -- Enable the audio module (boolean)
-    t.modules.physics = true           -- Enable the physics module (boolean)
+    t.modules.physics = false           -- Enable the physics module (boolean)
     t.modules.sound = true             -- Enable the sound module (boolean)
-    t.modules.math = true              -- Enable the math module (boolean)
+    t.modules.math = false              -- Enable the math module (boolean)
     -- Very-Much-Needed Modules
     t.modules.joystick = true          -- Enable the joystick module (boolean)
     t.modules.event = true            -- Enable the event module (boolean)
