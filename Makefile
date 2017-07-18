@@ -1,3 +1,3 @@
 build:
 	rm -fr supersphere.love
-	zip -r supersphere.love assets lib *.lua
+	zip -r dist/supersphere.love assets lib *.lua
