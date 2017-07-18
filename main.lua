@@ -3,7 +3,7 @@ local game = require('lib/game')
 TLbind, control = love.filesystem.load('lib/vendor/TLbind.lua')()
 TLbind.joyBtns = { {"jump", "jump", "jump", "jump"} }
 TLbind.keys = {space="jump", e="jump", esc="quit", q="quit"}
-
+-- TLbind.mouseBtns = { l="jump" }
 
 
 function comma_value(amount)
@@ -158,8 +158,6 @@ function draw_obstacles()
       h, height - (height*v),
       width/2, height - (height*v),
       width/2, (height-h) - (height*v))
-
-    love.graphics.printf(math.floor(v*100), 0, height-80, width, 'center')
   end
 
   for i,v in ipairs(game.obstacles_2) do
@@ -210,14 +208,14 @@ end
 
 -- Jump!
 function jump(dt)
-  if game.dead then
+  if not game.dead then
+    game:jump(dt)
+    jump_sound:play()
+  else
     if game.dead_elapsed > game.dead_timeout then
       over_sound:stop()
       game:initialize()
     end
-  else
-    game:jump(dt)
-    jump_sound:play()
   end
 end
 
