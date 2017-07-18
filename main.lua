@@ -185,6 +185,10 @@ function draw_death()
 
     love.graphics.setColor(255, 0, 0)
     love.graphics.printf('GAME OVER', 0, height/2, width, 'center')
+
+    love.graphics.setColor(255, 255, 255)
+    love.graphics.printf('Score: '..math.floor(game:score()), 0, (height/3)*2, width, 'center')
+
     over_sound:play()
   end
 end
