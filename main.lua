@@ -25,8 +25,7 @@ function love.load()
     love.graphics.setFont(font, 55)
 
     -- The operating system.
-    os = love.system.getOS()
-    mobile = (os == 'iOS') or (os == 'Android')
+    mobile = (love.system.getOS() == 'iOS') or (love.system.getOS() == 'Android')
 
     -- Dimensions.
     width, height = love.graphics.getDimensions()
@@ -43,6 +42,11 @@ function love.load()
 
     music3 = love.audio.newSource("assets/loop3.wav")
     music3:setLooping(true)
+
+    -- Initialize the pseudo random number generator
+    math.randomseed(os.time())
+    math.random(); math.random(); math.random()
+
 end
 
 
