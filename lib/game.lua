@@ -64,14 +64,15 @@ function Game:update_obstacles(dt)
           else
             table.insert(self.obstacles_2, 1)
           end
-          if self.obstacle_interval > 0.5 then
-            self.obstacle_interval = self.obstacle_interval - math.random(0, self.obstacle_interval/3)
-          else
-            self.obstacle_interval = math.random(0.5, 3)
-          end
 
           self.obstacle_countdown = self.obstacle_countdown + self.obstacle_interval
      end
+
+      if self.obstacle_interval > 0.3 then
+          self.obstacle_interval = self.obstacle_interval - math.random(0, self.obstacle_interval/2)
+        else
+          self.obstacle_interval = math.random(0.2, 3)
+        end
 
   local threshold = 0.05
   local cutoff = 0.5

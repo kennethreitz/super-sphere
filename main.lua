@@ -27,6 +27,12 @@ function love.load()
     -- Dimensions.
     width, height = love.graphics.getDimensions()
     print('Running in '..width..'x'..height..' mode.')
+
+    jump_sound = love.audio.newSource("assets/jump.wav", "static")
+    over_sound = love.audio.newSource("assets/game-over.wav", "static")
+    music = love.audio.newSource("assets/loop.wav")
+    music2 = love.audio.newSource("assets/loop2.wav")
+    music3 = love.audio.newSource("assets/loop3.wav")
 end
 
 
@@ -200,6 +206,7 @@ function draw_death()
 
     love.graphics.setColor(255, 0, 0)
     love.graphics.printf('GAME OVER', 0, height/2, width, 'center')
+    over_sound:play()
   end
 end
 
@@ -220,7 +227,13 @@ end
 
 -- Jump!
 function jump(dt)
+  if game.dead then
+    over_sound:stop()
+    game:initialize()
+  end
+
   game:jump(dt)
+  jump_sound:play()
 end
 
 -- iOS touchscreen support.
@@ -229,6 +242,24 @@ function love.touchpressed(id, x, y, dx, dy, pressure)
 end
 
 function love.update(dt)
+  if game.progress < 1 then
+    music:play()
+  else
+    music:stop()
+    music2:play()
+  end
+  if game.stretch_progress > 1 then
+    music2:stop()
+    music3:play()
+  end
+
+  if game.dead then
+    music:stop()
+    music2:stop()
+    music3:stop()
+
+  end
+
   -- Update the controller.
   TLbind:update()
 
