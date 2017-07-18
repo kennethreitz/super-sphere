@@ -172,6 +172,22 @@ function draw_obstacles()
 
 end
 
+
+function draw_demands()
+  if not game.started then
+    love.graphics.setColor(game:random_color(), 225)
+    love.graphics.polygon("fill",
+      0, 0,
+      0, height,
+      width, height,
+      width, 0)
+
+    love.graphics.setColor(255, 255, 255)
+    love.graphics.printf('Jump! (space bar, touch screen, controller button)', 0, height/2, width, 'center')
+
+  end
+end
+
 function draw_death()
   if game.dead then
     love.graphics.setColor(0, 0, 0)
@@ -201,6 +217,7 @@ function love.draw()
     draw_ball()
 
     draw_distance()
+    draw_demands()
     draw_death()
 
 end

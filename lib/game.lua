@@ -16,8 +16,8 @@ function Game:initialize()
   self.distance_rate = 80
   self.goal_distance = 1000
   self.stretch_goal_distance = 3000
-  self.starting_position = (-1 * self.goal_distance)
-  self.track = 1
+  self.track = 2
+  self.started = false
   self.dead = false
   self.dead_elapsed = 0
   self.dead_timeout = 1
@@ -49,13 +49,16 @@ function Game:update(dt)
   self.progress = (self.distance / self.goal_distance)
   self.stretch_progress = (self.distance / self.stretch_goal_distance)
 
-  self:update_distance(dt)
-  self:update_background(dt)
-  self:update_background_speed()
-  self:update_jump(dt)
-  self:update_wobbles(dt)
-  self:update_obstacles(dt)
-  self:update_dead(dt)
+  if self.started then
+    self:update_distance(dt)
+    self:update_background(dt)
+    self:update_background_speed()
+    self:update_jump(dt)
+    self:update_wobbles(dt)
+    self:update_obstacles(dt)
+    self:update_dead(dt)
+  end
+
 end
 
 function Game:update_obstacles(dt)
@@ -113,7 +116,7 @@ function Game:update_obstacles(dt)
 
 end
 function Game:score()
-  return self.starting_position + self.distance
+  return self.distance
 end
 
 function Game:update_wobbles(dt)
@@ -137,10 +140,12 @@ function Game:update_jump(dt)
       self.current_jump = 0
     end
 end
-function Game:jump_available()
-    return false
-end
+
 function Game:jump(dt)
+    if not self.started then
+      self.started = true
+    end
+
     self:toggle_tracks()
     self.current_jump = 1
 
@@ -167,7 +172,7 @@ function Game:toggle_tracks()
     return true
 end
 function Game:update_distance(dt)
-  if not self.dead then
+  if (self.started or not self.dead) then
     local d = (dt * self.distance_rate)
     self.distance = self.distance + d
   end
