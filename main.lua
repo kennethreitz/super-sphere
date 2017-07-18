@@ -34,9 +34,15 @@ function love.load()
 
     jump_sound = love.audio.newSource("assets/jump.wav", "static")
     over_sound = love.audio.newSource("assets/game-over.wav", "static")
+
     music = love.audio.newSource("assets/loop.wav")
+    music:setLooping(true)
+
     music2 = love.audio.newSource("assets/loop2.wav")
+    music2:setLooping(true)
+
     music3 = love.audio.newSource("assets/loop3.wav")
+    music3:setLooping(true)
 end
 
 
