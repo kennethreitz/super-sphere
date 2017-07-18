@@ -1,39 +1,199 @@
 local game = require('lib/game')
 
-function love.load()
-    -- Load the typeface.
-    font = love.graphics.newFont("assets/Junction-bold.otf", 48)
+TLbind, control = love.filesystem.load('lib/vendor/TLbind.lua')()
+TLbind.joyBtns = { {"jump", "jump", "jump", "jump"} }
+TLbind.keys = {space="jump", e="jump", esc="quit", q="quit"}
+
+
+
+function comma_value(amount)
+  local formatted = amount
+  while true do
+    formatted, k = string.gsub(formatted, "^(-?%d+)(%d%d%d)", '%1,%2')
+    if (k==0) then
+      break
+    end
+  end
+  return formatted
 end
 
-function draw_buttons()
-    local button_a = game.button_slots[1]
-    love.graphics.setColor(255, 0, 0, 128)
-    love.graphics.circle("fill", 0, 0, 180)
 
+
+function love.load()
+    -- Load the typeface.
+    font = love.graphics.newFont("assets/Junction-bold.otf", 50)
     love.graphics.setFont(font, 55)
-    love.graphics.setColor(255, 255, 255)
-    love.graphics.print(button_a.name)
+
+    -- Dimensions.
+    width, height = love.graphics.getDimensions()
+    print('Running in '..width..'x'..height..' mode.')
+end
+
+
+function draw_attractor()
+  local random_max = width / 2
+  local offset_x = width / 2
+  local offset_y = height / 2
+
+  love.graphics.setColor(game.background_color)
+  love.graphics.polygon("fill",
+    0, 0,
+    0, height,
+    width, height,
+    width, 0)
+
+  if game.stretch_progress > 0.8 then
+
+    random_max = game.stretch_progress * random_max
+
+    love.graphics.setColor(math.random(1, 255), math.random(1, 255), math.random(1, 255))
+    love.graphics.polygon("fill",
+      math.random(-1 * random_max, random_max) + offset_x,
+      math.random(-1 * random_max, random_max) + offset_y,
+
+      math.random(-1 * random_max, random_max) + offset_x,
+      math.random(-1 * random_max, random_max) + offset_y,
+
+      math.random(-1 * random_max, random_max) + offset_x,
+      math.random(-1 * random_max, random_max) + offset_y,
+
+      math.random(-1 * random_max, random_max) + offset_x,
+      math.random(-1 * random_max, random_max) + offset_y,
+
+      math.random(-1 * random_max, random_max) + offset_x,
+      math.random(-1 * random_max, random_max) + offset_y)
+  end
+
+  -- if not game:energy_is_negative() then
+    -- love.graphics.setColor(255, 255, 255)
+  -- else
+  love.graphics.setColor(0, 0, 0)
+  -- love.graphics.circle("fill", 400, 300, random_max - 15)
+end
+
+function draw_button_indicator()
+  local name = ''
+  love.graphics.setFont(font, 55)
+  love.graphics.setColor(255, 255, 255)
+
+  if control.a then
+    name = 'Harvester'
+
+  elseif control.b then
+    name = 'Optimize'
+
+  elseif control.x then
+    name = 'Upgrade'
+
+  elseif control.y then
+    name = 'Stats'
+  end
+
+  love.graphics.printf(name, 0, 550, 800, 'center')
+end
+
+function draw_field()
+  for i=1,1000 do
+      love.graphics.setColor(math.random(1, 255), math.random(1, 255), math.random(1, 255))
+      love.graphics.points(math.random(1, 800), math.random(1, 600))
+      -- stars_printed = 1
+  end
+end
+
+function draw_distance()
+  love.graphics.setColor(255, 255, 255)
+  love.graphics.printf(comma_value(math.floor(game:score())), 30, 30, 400, 'left')
+end
+
+
+
+function draw_ball()
+  x_locations = {(width/5)*2, (width/5)*3}
+  track_distance = x_locations[2] - x_locations[1]
+
+  woggle1 = math.random(-1 * game.ball_wobble, game.ball_wobble)
+  woggle2 = math.random(-1 * game.ball_wobble, game.ball_wobble)
+
+  if game.track == 1 then
+    direction = 1
+  else
+    direction = -1
+  end
+
+  jump_offset = direction * (game.current_jump * track_distance)
+
+  x = (x_locations[game.track] + jump_offset) + woggle2
+  y = (height / 9) + woggle1
+
+  love.graphics.setColor(255, 255, 255)
+  love.graphics.circle("fill", x, y, width/20)
+end
+
+
+function draw_track1()
+  local track_width = (width/8)
+
+  woggle = math.random(-1 * game.track_wobble, game.track_wobble)
+
+  local x_offset = (width / 5)*2
+  love.graphics.setColor(0, 0, 0)
+  love.graphics.polygon("fill",
+    x_offset, 0,
+    x_offset + track_width, 0,
+    x_offset + track_width + woggle, height,
+    x_offset + woggle, height)
+end
+
+function draw_track2()
+  local track_width = (width/8)
+
+  woggle = math.random(-1 * game.track_wobble, game.track_wobble)
+
+  local x_offset = (width / 5)*3
+  love.graphics.setColor(0, 0, 0)
+  love.graphics.polygon("fill",
+    x_offset + woggle, 0,
+    x_offset + track_width + woggle, 0,
+    x_offset + track_width, height,
+    x_offset, height)
 end
 
 function love.draw()
-    -- love.graphics.print("Hello World!", 400, 300)
-    draw_buttons()
+    draw_attractor()
+
+    draw_track1()
+    draw_track2()
+
+    draw_ball()
+
+    draw_distance()
+
 end
 
 
-countdownTime = 0.3 --five seconds
+-- Jump!
+function jump(dt)
+  game:jump(dt)
+end
 
-function timer(dt)
-    countdownTime = countdownTime - dt
-     if  countdownTime <= 0 then
-          print(game:energy())
-          -- game:upgrade_energy_collection(1)
-          countdownTime = countdownTime + 0.3
-     end
+-- iOS touchscreen support.
+function love.touchpressed(id, x, y, dx, dy, pressure)
+  jump()
 end
 
 function love.update(dt)
-    timer(dt)
-    game:update(dt)
-    -- print(game.energy_collected)
+  -- Update the controller.
+  TLbind:update()
+
+  -- Update the game engine.
+  game:update(dt)
+
+  if control.tap['jump'] then
+    jump(dt)
+  end
+
+  if control.tap["quit"] then
+    love.event.quit()
+  end
+
 end
