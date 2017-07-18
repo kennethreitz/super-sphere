@@ -20,8 +20,8 @@ function love.conf(t)
     -- no touching
     t.window.resizable = false         -- Let the window be user-resizable (boolean)
     t.window.highdpi = false           -- Enable high-dpi mode for the window on a Retina display (boolean). Added in 0.9.1
-    t.window.minwidth = 1              -- Minimum window width if the window is resizable (number)
-    t.window.minheight = 1             -- Minimum window height if the window is resizable (number)
+    -- t.window.minwidth = 1              -- Minimum window width if the window is resizable (number)
+    -- t.window.minheight = 1             -- Minimum window height if the window is resizable (number)
 
     -- Not-Yet-Needed Modules
     t.modules.audio = true            -- Enable the audio module (boolean)

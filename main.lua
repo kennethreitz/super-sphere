@@ -24,6 +24,9 @@ function love.load()
     font = love.graphics.newFont("assets/Junction-bold.otf", 50)
     love.graphics.setFont(font, 55)
 
+    -- The operating system.
+    os = love.system.getOS()
+
     -- Dimensions.
     width, height = love.graphics.getDimensions()
     print('Running in '..width..'x'..height..' mode.')
@@ -48,7 +51,7 @@ function draw_attractor()
     width, height,
     width, 0)
 
-  if game.stretch_progress > 0.8 then
+  if (game.stretch_progress > 0.8) and (os ~= 'iOS') then
 
     random_max = game.stretch_progress * random_max
 
