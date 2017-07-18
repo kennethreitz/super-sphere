@@ -54,7 +54,10 @@ function draw_attractor()
 
   if (game.stretch_progress > 0.8) then
 
-    random_max = game.stretch_progress * random_max
+    -- Only grow so large (iOS limitations).
+    if game.stretch_progress < 2 then
+        random_max = game.stretch_progress * random_max
+    end
 
     love.graphics.setColor(math.random(1, 255), math.random(1, 255), math.random(1, 255))
     love.graphics.polygon("fill",
@@ -248,20 +251,18 @@ end
 function love.update(dt)
   if game.progress < 1 then
     music:play()
+  elseif game.stretch_progress > 1 then
+    music2:stop()
+    music3:play()
   else
     music:stop()
     music2:play()
-  end
-  if game.stretch_progress > 1 then
-    music2:stop()
-    music3:play()
   end
 
   if game.dead then
     music:stop()
     music2:stop()
     music3:stop()
-
   end
 
   -- Update the controller.
