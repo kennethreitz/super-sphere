@@ -2,3 +2,6 @@
 dist/macos/supersphere-app-OSX.zip
 dist/supersphere-ANDROID.apk
 dist/supersphere.love
+dist/supersphere-WIN.zip
+dist/supersphere-app-OSX.zip
+dist/windows/SuperSphere.exe
