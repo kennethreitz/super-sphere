@@ -99,7 +99,7 @@ function Game:update_obstacles(dt)
 
     if v < cutoff + threshold and v > cutoff then
       if self.track == 1 then
-        -- self.dead = true
+        self.dead = true
       end
     end
 
@@ -114,7 +114,7 @@ function Game:update_obstacles(dt)
 
     if v < cutoff + threshold and v > cutoff then
       if self.track == 2 then
-        -- self.dead = true
+        self.dead = true
       end
     end
   end
