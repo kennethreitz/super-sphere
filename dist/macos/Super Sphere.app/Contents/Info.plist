@@ -58,11 +58,11 @@
 	<key>CFBundleIconFile</key>
 	<string>OS X AppIcon</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.KennethReitz.SpongeGod</string>
+	<string>org.kennethreitz.supersphere</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>SppongeGod</string>
+	<string>Super Sphere</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -92,7 +92,7 @@
 	<key>NSHighResolutionCapable</key>
 	<true/>
 	<key>NSHumanReadableCopyright</key>
-	<string>© 2006-2016 LÖVE Development Team</string>
+	<string>© 2017 Kenneth Reitz</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>UTExportedTypeDeclarations</key>
