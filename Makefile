@@ -9,7 +9,6 @@ mac: build
 	rm -fr dist/macos/Super\ Sphere.app/Contents/Resources/supersphere.love
 
 windows:
-
 	mv conf.lua conf.default.lua
 	mv conf.windows.lua conf.lua
 	$(MAKE) build
