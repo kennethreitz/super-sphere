@@ -1,21 +1,19 @@
 function love.conf(t)
+
     t.identity = "super_sphere"          -- The name of the save directory (string)
     -- t.version = "0.9"                -- The LÖVE version this game was made for (string)
-    t.console = true                 -- Attach a console (boolean, Windows only)
+    t.console = false                 -- Attach a console (boolean, Windows only)
     t.author = "KennethReitz"             -- Who made this?
     -- t.window.title = "Love Block"        -- The window title (string)
     -- t.window.icon = "love_block.png"    -- Filepath to an image to use as the window's icon (string)
 
     -- customize
-    t.window.width = 0               -- The window width (number)
-    t.window.height = 0              -- The window height (number)
     t.window.borderless = true        -- Remove all border visuals from the window (boolean)
-    t.window.fullscreen = true        -- Enable fullscreen (boolean)
     t.window.fullscreentype = "desktop" -- Standard fullscreen or desktop fullscreen mode (string)
-    t.window.vsync = true              -- Enable vertical sync (boolean)
+    t.window.vsync = false              -- Enable vertical sync (boolean)
     t.window.fsaa = 16                  -- The number of samples to use with multi-sampled antialiasing (number)
     t.window.display = 1               -- Index of the monitor to show the window in (number)
-    t.window.srgb = true              -- Enable sRGB gamma correction when drawing to the screen (boolean). Added in 0.9.1
+    t.window.srgb = false              -- Enable sRGB gamma correction when drawing to the screen (boolean). Added in 0.9.1
 
     -- no touching
     t.window.resizable = false         -- Let the window be user-resizable (boolean)
@@ -38,4 +36,9 @@ function love.conf(t)
     t.modules.mouse = true             -- Enable the mouse module (boolean)
     t.modules.system = true            -- Enable the system module (boolean)
     t.modules.window = true            -- Enable the window module (boolean)
+
+    t.window.width = 1024               -- The window width (number)
+    t.window.height = 768              -- The window height (number)
+    t.window.fullscreen = false        -- Enable fullscreen (boolean)
+
 end
