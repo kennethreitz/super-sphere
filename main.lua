@@ -94,14 +94,6 @@ function draw_attractor()
   -- love.graphics.circle("fill", 400, 300, random_max - 15)
 end
 
-function draw_field()
-  for i=1,1000 do
-      love.graphics.setColor(math.random(1, 255), math.random(1, 255), math.random(1, 255))
-      love.graphics.points(math.random(1, 800), math.random(1, 600))
-      -- stars_printed = 1
-  end
-end
-
 function draw_distance()
   love.graphics.setColor(255, 255, 255)
   love.graphics.printf(comma_value(math.floor(game:score())), 30, 30, 400, 'left')
@@ -221,7 +213,7 @@ function draw_death()
     love.graphics.printf('GAME OVER', 0, height/2, width, 'center')
 
     love.graphics.setColor(255, 255, 255)
-    love.graphics.printf('Score: '..math.floor(game:score()), 0, (height/3)*2, width, 'center')
+    love.graphics.printf('Score: '..comma_value(math.floor(game:score())), 0, (height/3)*2, width, 'center')
 
     over_sound:play()
   end
