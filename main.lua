@@ -192,15 +192,18 @@ end
 
 function draw_demands()
   if not game.started then
-    love.graphics.setColor(game:random_color(), 225)
+    love.graphics.setColor(0, 0, 0)
     love.graphics.polygon("fill",
       0, 0,
       0, height,
       width, height,
       width, 0)
 
+    love.graphics.setColor(255, 0, 0)
+    love.graphics.printf('Warning: Could potentially cause seizures!', 0, height/2, width, 'center')
+
     love.graphics.setColor(255, 255, 255)
-    love.graphics.printf('Jump!', 0, height/2, width, 'center')
+    love.graphics.printf('Jump, if you dare!', 0, (height/8)*5, width, 'center')
 
   end
 end
@@ -249,6 +252,7 @@ function jump(dt)
     if game.dead_elapsed > game.dead_timeout then
       over_sound:stop()
       game:initialize()
+      game.started = true
     end
   end
 end
