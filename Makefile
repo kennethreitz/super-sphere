@@ -1,3 +1,6 @@
+run: build
+	love dist/supersphere.love
+
 build:
 	rm -fr supersphere.love
 	zip -r dist/supersphere.love assets lib *.lua
@@ -17,6 +20,7 @@ windows:
 	cd dist/windows && zip -r supersphere-WIN.zip *
 	mv dist/windows/supersphere-WIN.zip dist/
 	rm -fr dist/supersphere.love
+	rm -fr dist/windows/SuperSphere.exe
 
 	mv conf.lua conf.windows.lua
 	mv conf.default.lua conf.lua
