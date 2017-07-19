@@ -63,23 +63,28 @@ end
 
 function Game:update_obstacles(dt)
   self.obstacle_countdown = self.obstacle_countdown - dt
-     if self.obstacle_countdown <= 0 then
-          -- randomly generate obstacles
-          local track = math.random(1, 2)
-          if track == 1 then
-            table.insert(self.obstacles_1, 1)
-          else
-            table.insert(self.obstacles_2, 1)
-          end
+    if self.obstacle_countdown <= 0 then
+      -- randomly generate obstacles
+      local track = math.random(1, 2)
+      if track == 1 then
+        table.insert(self.obstacles_1, 1)
+      else
+        table.insert(self.obstacles_2, 1)
+      end
 
-          self.obstacle_countdown = self.obstacle_countdown + self.obstacle_interval
-     end
+      self.obstacle_countdown = self.obstacle_countdown + self.obstacle_interval
+    end
 
-      if self.obstacle_interval > 0.3 then
-          self.obstacle_interval = self.obstacle_interval - math.random(0, self.obstacle_interval/2)
-        else
-          self.obstacle_interval = math.random(0.2, 3)
-        end
+    if self.stretch_progress < 0.8 then
+      local m = self.stretch_progress
+    else
+       m = math.random(3, 8)
+    end
+
+    self.obstacle_interval = math.random(4, 12 - math.floor(self.progress * self.progress)) / (5 + (self.progress * self.progress))
+    if self.obstacle_interval < 0.2 then
+      self.obstacle_interval = math.random(2, 5) / 10
+    end
 
   local threshold = 0.05
   local cutoff = 0.5
@@ -94,7 +99,7 @@ function Game:update_obstacles(dt)
 
     if v < cutoff + threshold and v > cutoff then
       if self.track == 1 then
-        self.dead = true
+        -- self.dead = true
       end
     end
 
@@ -109,7 +114,7 @@ function Game:update_obstacles(dt)
 
     if v < cutoff + threshold and v > cutoff then
       if self.track == 2 then
-        self.dead = true
+        -- self.dead = true
       end
     end
   end
