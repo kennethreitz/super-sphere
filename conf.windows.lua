@@ -8,7 +8,7 @@ function love.conf(t)
     -- t.window.icon = "love_block.png"    -- Filepath to an image to use as the window's icon (string)
 
     -- customize
-    t.window.borderless = true        -- Remove all border visuals from the window (boolean)
+    t.window.borderless = false        -- Remove all border visuals from the window (boolean)
     t.window.fullscreentype = "desktop" -- Standard fullscreen or desktop fullscreen mode (string)
     t.window.vsync = false              -- Enable vertical sync (boolean)
     t.window.fsaa = 16                  -- The number of samples to use with multi-sampled antialiasing (number)
@@ -16,7 +16,7 @@ function love.conf(t)
     t.window.srgb = false              -- Enable sRGB gamma correction when drawing to the screen (boolean). Added in 0.9.1
 
     -- no touching
-    t.window.resizable = false         -- Let the window be user-resizable (boolean)
+    t.window.resizable = true         -- Let the window be user-resizable (boolean)
     t.window.highdpi = false           -- Enable high-dpi mode for the window on a Retina display (boolean). Added in 0.9.1
     -- t.window.minwidth = 1              -- Minimum window width if the window is resizable (number)
     -- t.window.minheight = 1             -- Minimum window height if the window is resizable (number)
