@@ -19,3 +19,4 @@ android: build
 	cp dist/supersphere.love dist/android/game.love
 	cd dist/android && ./gradlew build
 	mv dist/android/app/build/outputs/apk/app-debug.apk dist/android/supersphere.apk
+	rm -fr dist/android/game.love
