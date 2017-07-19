@@ -10,7 +10,7 @@ function love.conf(t)
     -- customize
     t.window.borderless = true        -- Remove all border visuals from the window (boolean)
     t.window.fullscreentype = "desktop" -- Standard fullscreen or desktop fullscreen mode (string)
-    t.window.vsync = false              -- Enable vertical sync (boolean)
+    t.window.vsync = true              -- Enable vertical sync (boolean)
     t.window.fsaa = 16                  -- The number of samples to use with multi-sampled antialiasing (number)
     t.window.display = 1               -- Index of the monitor to show the window in (number)
     t.window.srgb = false              -- Enable sRGB gamma correction when drawing to the screen (boolean). Added in 0.9.1
@@ -37,8 +37,8 @@ function love.conf(t)
     t.modules.system = true            -- Enable the system module (boolean)
     t.modules.window = true            -- Enable the window module (boolean)
 
-    t.window.width = 1024               -- The window width (number)
-    t.window.height = 768              -- The window height (number)
-    t.window.fullscreen = false        -- Enable fullscreen (boolean)
+    t.window.width = 0               -- The window width (number)
+    t.window.height = 0              -- The window height (number)
+    t.window.fullscreen = true        -- Enable fullscreen (boolean)
 
 end
