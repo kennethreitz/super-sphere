@@ -333,7 +333,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "love" */;
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Super Sphere" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -648,7 +648,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = org.love2d.love;
+				PRODUCT_BUNDLE_IDENTIFIER = org.kennethreitz.supersphere;
 				PRODUCT_NAME = love;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -692,7 +692,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = org.love2d.love;
+				PRODUCT_BUNDLE_IDENTIFIER = org.kennethreitz.supersphere;
 				PRODUCT_NAME = love;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -737,7 +737,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = org.love2d.love;
+				PRODUCT_BUNDLE_IDENTIFIER = org.kennethreitz.supersphere;
 				PRODUCT_NAME = love;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
@@ -848,7 +848,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "love" */ = {
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Super Sphere" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
