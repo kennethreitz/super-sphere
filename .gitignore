@@ -1,2 +1,4 @@
 .DS_Store
 dist/macos/supersphere-app-OSX.zip
+dist/supersphere-ANDROID.apk
+dist/supersphere.love
