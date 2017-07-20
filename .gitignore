@@ -6,4 +6,4 @@ dist/supersphere-WIN.zip
 dist/supersphere-app-OSX.zip
 dist/windows/SuperSphere.exe
 dist/.DS_Store
-dist/android/.gradle/2.14.1/taskArtifacts/cache.properties.lock
+dist/android/.gradle/*
