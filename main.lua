@@ -56,6 +56,10 @@ function love.load()
 
 end
 
+function love.resize(w, h)
+  width, height = love.graphics.getDimensions()
+end
+
 
 function draw_attractor()
   local random_max = width / 2
