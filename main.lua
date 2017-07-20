@@ -39,7 +39,7 @@ function love.load()
     print('Running in '..width..'x'..height..' mode.')
 
     jump_sound = love.audio.newSource("assets/jump.wav", "static")
-    over_sound = love.audio.newSource("assets/game-over.wav", "static")
+    over_sound = love.audio.newSource("assets/game-over.wav")
 
     music = love.audio.newSource("assets/loop.wav")
     music:setLooping(true)
@@ -225,8 +225,6 @@ function draw_death()
 
     love.graphics.setColor(255, 255, 255)
     love.graphics.printf('Score: '..comma_value(math.floor(game:score())), 0, (height/3)*2, width, 'center')
-
-    over_sound:play()
   end
 end
 
@@ -266,20 +264,28 @@ function love.touchpressed(id, x, y, dx, dy, pressure)
 end
 
 function love.update(dt)
-  if game.progress < 1 then
-    music:play()
-  elseif game.stretch_progress > 1 then
-    music2:stop()
-    music3:play()
+
+  if game.paused then
+    love.audio.pause()
   else
-    music:stop()
-    music2:play()
+    love.audio.resume()
   end
 
   if game.dead then
     music:stop()
     music2:stop()
     music3:stop()
+    over_sound:play()
+  else
+    if game.progress < 1 then
+      music:play()
+    elseif game.stretch_progress > 1 then
+        music2:stop()
+        music3:play()
+    else
+      music:stop()
+      music2:play()
+    end
   end
 
   -- Update the controller.
