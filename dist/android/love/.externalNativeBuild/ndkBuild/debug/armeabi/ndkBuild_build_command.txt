@@ -1,14 +1,14 @@
 Executable : /usr/local/share/android-ndk/ndk-build
 arguments : 
 NDK_PROJECT_PATH=null
-APP_BUILD_SCRIPT=/Users/kennethreitz/Desktop/game5/dist/android/love/src/jni/Android.mk
-NDK_APPLICATION_MK=/Users/kennethreitz/Desktop/game5/dist/android/love/src/jni/Application.mk
+APP_BUILD_SCRIPT=/Users/kennethreitz/Desktop/super-sphere/dist/android/love/src/jni/Android.mk
+NDK_APPLICATION_MK=/Users/kennethreitz/Desktop/super-sphere/dist/android/love/src/jni/Application.mk
 APP_ABI=armeabi
 NDK_ALL_ABIS=armeabi
 NDK_DEBUG=1
 APP_PLATFORM=android-9
-NDK_OUT=/Users/kennethreitz/Desktop/game5/dist/android/love/build/intermediates/ndkBuild/debug/obj
-NDK_LIBS_OUT=/Users/kennethreitz/Desktop/game5/dist/android/love/build/intermediates/ndkBuild/debug/lib
+NDK_OUT=/Users/kennethreitz/Desktop/super-sphere/dist/android/love/build/intermediates/ndkBuild/debug/obj
+NDK_LIBS_OUT=/Users/kennethreitz/Desktop/super-sphere/dist/android/love/build/intermediates/ndkBuild/debug/lib
 -j2
 APP_SHORT_COMMANDS=false
 LOCAL_SHORT_COMMANDS=false
