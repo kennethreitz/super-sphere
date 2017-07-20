@@ -22,6 +22,8 @@ function Game:initialize()
   self.dead_elapsed = 0
   self.dead_timeout = 1
 
+  self.paused = false
+
   self.obstacles_1 = {}
   self.obstacles_2 = {}
 
@@ -46,18 +48,21 @@ function Game:initialize()
 
 end
 function Game:update(dt)
-  self.progress = (self.distance / self.goal_distance)
-  self.stretch_progress = (self.distance / self.stretch_goal_distance)
+  if not self.paused then
+    self.progress = (self.distance / self.goal_distance)
+    self.stretch_progress = (self.distance / self.stretch_goal_distance)
 
-  if self.started then
-    self:update_distance(dt)
-    self:update_background(dt)
-    self:update_background_speed()
-    self:update_jump(dt)
-    self:update_wobbles(dt)
-    self:update_obstacles(dt)
-    self:update_dead(dt)
+    if self.started then
+      self:update_distance(dt)
+      self:update_background(dt)
+      self:update_background_speed()
+      self:update_jump(dt)
+      self:update_wobbles(dt)
+      self:update_obstacles(dt)
+      self:update_dead(dt)
+    end
   end
+
 
 end
 

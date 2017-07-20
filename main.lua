@@ -18,6 +18,13 @@ function comma_value(amount)
 end
 
 
+function love.focus(f)
+  if f then
+    game.paused = false
+  else
+    game.paused = true
+  end
+end
 
 function love.load()
     -- Load the typeface.
