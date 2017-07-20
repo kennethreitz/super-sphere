@@ -3285,6 +3285,9 @@
 					FA0B78DC1A958B90000E1D17 = {
 						CreatedOnToolsVersion = 6.1.1;
 					};
+					FA577AAE16C7507900860150 = {
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = 1DEB928908733DD80010E9CD /* Build configuration list for PBXProject "liblove" */;
@@ -4027,6 +4030,7 @@
 					ios/include/SDL2,
 					ios/include/modplug,
 				);
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ios/libraries/freetype",
@@ -4044,7 +4048,9 @@
 				PRODUCT_NAME = love;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 arm64 armv7s";
 			};
 			name = Debug;
 		};
@@ -4068,6 +4074,7 @@
 					ios/include/SDL2,
 					ios/include/modplug,
 				);
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ios/libraries/freetype",
@@ -4085,8 +4092,10 @@
 				PRODUCT_NAME = love;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 arm64 armv7s";
 			};
 			name = Release;
 		};
@@ -4110,6 +4119,7 @@
 					ios/include/SDL2,
 					ios/include/modplug,
 				);
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ios/libraries/freetype",
@@ -4127,8 +4137,10 @@
 				PRODUCT_NAME = love;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 arm64 armv7s";
 			};
 			name = Distribution;
 		};
@@ -4186,8 +4198,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 9.0;
 				DYLIB_CURRENT_VERSION = 9.0;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4204,14 +4218,17 @@
 					/Library/Frameworks/SDL2.framework/Headers,
 				);
 				INFOPLIST_FILE = "macosx/liblove-macosx.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_DYLIB_INSTALL_NAME = "@rpath/$(EXECUTABLE_PATH)";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_LDFLAGS = (
 					"-undefined",
 					dynamic_lookup,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "love2d.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = love;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
 			};
@@ -4221,7 +4238,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 9.0;
 				DYLIB_CURRENT_VERSION = 9.0;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4238,14 +4257,17 @@
 					/Library/Frameworks/SDL2.framework/Headers,
 				);
 				INFOPLIST_FILE = "macosx/liblove-macosx.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_DYLIB_INSTALL_NAME = "@rpath/$(EXECUTABLE_PATH)";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_LDFLAGS = (
 					"-undefined",
 					dynamic_lookup,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "love2d.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = love;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
 			};
@@ -4255,8 +4277,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
 				DYLIB_COMPATIBILITY_VERSION = 9.0;
 				DYLIB_CURRENT_VERSION = 9.0;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -4273,14 +4297,17 @@
 					/Library/Frameworks/SDL2.framework/Headers,
 				);
 				INFOPLIST_FILE = "macosx/liblove-macosx.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_DYLIB_INSTALL_NAME = "@rpath/$(EXECUTABLE_PATH)";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				OTHER_LDFLAGS = (
 					"-undefined",
 					dynamic_lookup,
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "love2d.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = love;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
 			};
