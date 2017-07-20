@@ -1,19 +1,19 @@
-run: build
+run: love
 	love dist/supersphere.love
 
-build:
+love:
 	rm -fr supersphere.love
 	zip -r dist/supersphere.love assets lib *.lua
 
 ios:
 	mv conf.lua conf.default.lua
 	mv conf.mobile.lua conf.lua
-	$(MAKE) build
+	$(MAKE) love
 
 	mv conf.lua conf.mobile.lua
 	mv conf.default.lua conf.lua
 
-mac: build
+mac: love
 	mv dist/supersphere.love dist/macos/Super\ Sphere.app/Contents/Resources/supersphere.love
 	cd dist/macos && zip -r supersphere-app-OSX.zip *
 	mv dist/macos/supersphere-app-OSX.zip dist/
@@ -22,7 +22,7 @@ mac: build
 windows:
 	mv conf.lua conf.default.lua
 	mv conf.windows.lua conf.lua
-	$(MAKE) build
+	$(MAKE) love
 
 	mv conf.lua conf.windows.lua
 	mv conf.default.lua conf.lua
@@ -36,7 +36,7 @@ windows:
 android:
 	mv conf.lua conf.default.lua
 	mv conf.mobile.lua conf.lua
-	$(MAKE) build
+	$(MAKE) love
 
 	mv conf.lua conf.mobile.lua
 	mv conf.default.lua conf.lua
