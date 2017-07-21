@@ -44,11 +44,11 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.1</string>
+	<string>1.2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIFileSharingEnabled</key>
-	<true/>
+	<false/>
 	<key>UILaunchStoryboardName</key>
 	<string>Launch Screen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -69,34 +69,6 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
-	<key>UTExportedTypeDeclarations</key>
-	<array>
-		<dict>
-			<key>UTTypeConformsTo</key>
-			<array>
-				<string>com.pkware.zip-archive</string>
-			</array>
-			<key>UTTypeDescription</key>
-			<string>LÖVE Project</string>
-			<key>UTTypeIdentifier</key>
-			<string>org.love2d.love-game</string>
-			<key>UTTypeSize320IconFile</key>
-			<string>LoveDocument</string>
-			<key>UTTypeSize64IconFile</key>
-			<string>LoveDocument</string>
-			<key>UTTypeTagSpecification</key>
-			<dict>
-				<key>com.apple.ostype</key>
-				<string>LOVE</string>
-				<key>public.filename-extension</key>
-				<array>
-					<string>love</string>
-				</array>
-				<key>public.mime-type</key>
-				<string>application/x-love-game</string>
-			</dict>
-		</dict>
 	</array>
 </dict>
 </plist>
