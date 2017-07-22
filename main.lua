@@ -263,6 +263,11 @@ function love.touchpressed(id, x, y, dx, dy, pressure)
   jump()
 end
 
+-- Joystick support.
+function love.joystickpressed(joystick, button)
+  jump()
+end
+
 function love.update(dt)
 
   if game.paused then
@@ -303,3 +308,5 @@ function love.update(dt)
   end
 
 end
+
+
