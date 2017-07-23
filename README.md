@@ -16,3 +16,7 @@ Free [builds are available](https://github.com/kennethreitz/super-sphere/release
 
 - [Google Play Store (android)](https://play.google.com/store/apps/details?id=org.kennethreitz.supersphere.android&hl=en)
 - [itch.io](https://kennethreitz.itch.io/super-sphere)
+
+## See Also
+
+- [Super Sphere II](https://github.com/kennethreitz/super-sphere).
