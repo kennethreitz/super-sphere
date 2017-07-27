@@ -12,7 +12,7 @@ Free [builds are available](https://github.com/kennethreitz/super-sphere/release
 
 ## Official Relases
 
-- iOS App Store (Coming Soon! for $2.99)
+- iOS App Store (Coming Soon! for Free!)
 - [Google Play Store (Android)](https://play.google.com/store/apps/details?id=org.kennethreitz.supersphere.android&hl=en) (Free!)
 - [itch.io](https://kennethreitz.itch.io/super-sphere) (Free!)
 
